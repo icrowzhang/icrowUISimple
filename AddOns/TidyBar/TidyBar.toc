@@ -1,0 +1,12 @@
+﻿## Interface: 50001
+## Author: Binny
+## Title: Tidy Bar
+## Title-zhCN: 动作条
+## Title-zhTW: 動作條
+## Notes: Slim-Fast for your Action Bar
+## Notes-zhCN: 动作条美化插件
+## Notes-zhTW: 動作條美化插件
+## RequiredDeps: !UIDropDownMenuFix
+## Version: 5.0
+
+TidyBar.lua

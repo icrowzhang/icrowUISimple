@@ -1,0 +1,25 @@
+﻿!http://b.hiphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=da22fcd8034f78f0840b9ef549013124/4a36acaf2edda3cc5d16daac01e93901203f924f.jpg!
+
+h2. icrowUI - Simple
+
+h4. for World of Warcraft (5.0.5)
+
+h3. 说明
+
+* 此为icrowUI精简版, 无界面美化. 功能齐全, 占用更低.
+
+* "NGA发布帖":http://bbs.ngacn.cc/read.php?tid=5580467&_ff=200
+
+h3. 下载
+
+* "主插件包":https://github.com/icrowzhang/icrowUISimple/zipball/master
+
+* "必备字体包":https://github.com/downloads/icrowzhang/icrowUI/Fonts.rar
+
+* "可选字体包 - 国服":https://github.com/downloads/icrowzhang/icrowUI/FontsCN.rar
+
+* "可选字体包 - 台服":https://github.com/downloads/icrowzhang/icrowUI/FontsTW.rar
+
+* "材质包":https://github.com/downloads/icrowzhang/icrowUISimple/InterfaceSimple.rar
+
+* "Clean Icons - Thin 图标包":https://github.com/downloads/icrowzhang/icrowUI/ICONS.rar
