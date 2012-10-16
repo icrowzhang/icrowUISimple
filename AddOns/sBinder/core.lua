@@ -1,7 +1,16 @@
 local addonName, ns = ...
+local F, C = unpack(Aurora)
+local _G = _G
+
 SpellBinder = CreateFrame('frame', 'SpellBinder', SpellBookFrame, 'ButtonFrameTemplate')
-_G['SpellBinderPortrait']:SetTexture("Interface\\CHARACTERFRAME\\TempPortraitAlphaMaskSmall")
-_G['SpellBinderPortrait']:SetVertexColor(0,0,0,1)
+_G['SpellBinderPortrait']:SetTexture(nil)
+SpellBinder:DisableDrawLayer('Border')
+SpellBinder:DisableDrawLayer('Overlay')
+SpellBinder:DisableDrawLayer('Background')
+_G["SpellBinderInset"]:DisableDrawLayer('Border')
+_G["SpellBinderInset"]:DisableDrawLayer('Background')
+F.ReskinClose(_G["SpellBinderCloseButton"])
+
 SpellBinder.sbOpen = false
 SpellBinder.spellbuttons = {}
 
@@ -32,6 +41,7 @@ hooksecurefunc("CompactUnitFrame_SetUpFrame", function(frame, ...) ClickCastFram
 
 SpellBinder:SetPoint("TOPLEFT", SpellBookFrame, "TOPRIGHT", 100, 0)
 SpellBinder:SetSize(300, 400)
+F.SetBD(SpellBinder)
 SpellBinder:Hide()
 
 local ScrollSpells = CreateFrame("ScrollFrame", "SpellBinderScrollFrameSpellList", _G["SpellBinderInset"], "UIPanelScrollFrameTemplate")
@@ -39,11 +49,7 @@ ScrollSpells.child = CreateFrame("frame", "SpellBinderScrollFrameSpellListChild"
 ScrollSpells:SetPoint("TOPLEFT", _G['SpellBinderInset'], "TOPLEFT", 0, -5)
 ScrollSpells:SetPoint("BOTTOMRIGHT", _G['SpellBinderInset'], "BOTTOMRIGHT", -30, 5)
 ScrollSpells:SetScrollChild(ScrollSpells.child)
-
-SpellBinder.title = _G['SpellBinderTitle'] or SpellBinder:CreateFontString('SpellBinderTitle', 'OVERLAY', 'GameFontNormal')
-SpellBinder.title:SetPoint('CENTER', _G['SpellBinderPortrait'], 'CENTER', 0, 0)
-SpellBinder.title:SetText('sBinder')
-
+F.ReskinScroll(_G["SpellBinderScrollFrameSpellListScrollBar"])
 
 SpellBinder.makeSpellsList = function(self, scroll, delete)
    local oldb
@@ -172,6 +178,13 @@ hooksecurefunc('SpellBookFrame_Update', function() if SpellBinder.sbOpen then Sp
 
 SpellBinder.OpenButton = CreateFrame("CheckButton", "SpellBinderOpenButton", _G["SpellBookSkillLineTab1"], "SpellBookSkillLineTabTemplate")
 SpellBinder.OpenButton:SetNormalTexture('Interface\\ICONS\\INV_Mushroom_08')
+
+SpellBinder.OpenButton:GetRegions():Hide()
+SpellBinder.OpenButton:SetCheckedTexture(C.media.checked)
+
+F.CreateBG(SpellBinder.OpenButton)
+F.CreateSD(SpellBinder.OpenButton, 5, 0, 0, 0, 1, 1)
+SpellBinder.OpenButton:GetNormalTexture():SetTexCoord(.08, .92, .08, .92)
 
 SpellBinder.OpenButton:SetScript("OnShow", function(self)
    if SpellBinder:IsVisible() then self:SetChecked(true) end
